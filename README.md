@@ -1,12 +1,141 @@
-# React + Vite
+# Active Tasks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## requirements:
 
-Currently, two official plugins are available:
+1: Must have authentication and have admin auth
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- login page
+- need input fields for email and password
+- direct to register page if not user
 
-## Expanding the ESLint configuration
+- register page
+- need name,email,pass and invite code
+- direct to login if already a user
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2: Admin
+-- Main page/ Dashboard for admin
+
+- must have navbar / sidebar to display Menu
+- progress bar can be added for tasks and task type
+- display All tasks and task process in dashboard
+  - can use table to display tasks with the priority and published date
+  - admin can see all tasks with see all and direct admin to manage tasks page
+  - only admin can create / edit task
+
+-- Create Task page
+
+- input for task title, task desc, priority, due date,
+  assigned to and task checklist
+- for assigning: a pop up with users name or picture
+- for check list: add the process steps to complete task
+
+-- Update Task page
+
+- can be same as Create Task page with update and remove BTN for same field
+- can give alert for delete items on task.
+- after update or delete task redirect to Manage task page
+
+-- Manage Tasks page
+
+- display task in card with :
+  - task title
+  - description
+  - start date and due date
+  - can display assigned to (users)
+- task can have category filter (H-M-L)
+
+-- Users page (only if have time)
+
+- display user
+  - create user card
+    - display name, email,
+    - can have profile picture and their task status
+
+3: User
+-- Home / Dashboard page
+
+- display user menu and user information
+- display task that related to user on the progress bar with the task priority
+- display user tasks in table, see all BTN can be added
+
+-- User tasks page
+
+- can be the same as manage tasks for admin
+- display task in card
+- display number of task
+- status filter can be added
+
+-- Edit Page
+
+- display task information (can be pop up)
+  - title, description, status, priority, due date, assigned
+- user only can edit the process checklist (can be checkbox)
+- if user checklist update, task status can be cheng to in progress or complete.
+- this cheng can update task in admin dashboard.
+
+///////////////////////////////////////////////////////////////////////////////
+FrontEnd folder and file structures
+
+└── frontend/
+├── public/
+│ ├── favicon.ico # Website icon
+│ └── assets/ # Other static assets you want directly served
+│ └── ...
+├── src/
+│ ├── assets/
+│ │ ├── images/ # Store logos, background images, user profile defaults
+│ │ └── styles/ # Global CSS files, e.g., base styles, variables
+│ │ └── global.css
+│ │ └── variables.css
+│ ├── components/
+│ │ ├── common/ # Reusable components used across many pages
+│ │ │ ├── Navbar.jsx
+│ │ │ ├── Sidebar.jsx
+│ │ │ ├── Button.jsx
+│ │ │ └── Table.jsx
+│ │ ├── tasks/ # Components specific to tasks
+│ │ │ ├── TaskCard.jsx
+│ │ │ ├── TaskForm.jsx
+│ │ │ └── TaskList.jsx
+│ │ ├── users/
+│ │ │ └── UserCard.jsx
+│ │ └── auth/
+│ │ ├── LoginForm.jsx
+│ │ └── RegisterForm.jsx
+│ ├── context/ # For global state management
+│ │ ├── AuthContext.jsx
+│ │ └── TaskContext.jsx
+│ ├── hooks/ # Custom React Hooks for reusable logic
+│ │ ├── useAuth.js
+│ │ └── useTasks.js
+│ ├── pages/
+│ │ ├── admin/
+│ │ │ ├── AdminDashboardPage.jsx
+│ │ │ ├── AdminTasksPage.jsx
+│ │ │ ├── AdminCreateTaskPage.jsx
+│ │ │ ├── AdminUpdateTaskPage.jsx
+│ │ │ └── AdminUsersPage.jsx
+│ │ ├── auth/
+│ │ │ ├── LoginPage.jsx
+│ │ │ └── RegisterPage.jsx
+│ │ ├── user/
+│ │ │ ├── UserDashboardPage.jsx
+│ │ │ └── UserTasksPage.jsx
+│ │ └── NotFoundPage.jsx
+│ ├── services/ # Functions for making API calls to your backend
+│ │ ├── authService.js
+│ │ ├── taskService.js
+│ │ └── userService.js
+│ ├── utils/ # Small, general utility functions
+│ │ ├── helpers.js
+│ │ └── constants.js
+│ ├── App.jsx  
+ │ └── main.jsx  
+ ├── .env  
+ ├── .gitignore  
+ ├── index.html  
+ ├── package.json  
+ ├── postcss.config.js  
+ ├── tailwind.config.js  
+ ├── vite.config.js  
+ └── README.md
