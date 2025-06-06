@@ -11,6 +11,10 @@
   @apply w-full flex justify-between gap-3 text-sm bg-slate-100/50 text-black rounded px-4 py-3 mb-4 mt-3 border border-slate-100 outline-none;
 }
 
+.text-primary {
+  @apply text-blue-700;
+}
+
 .btn-primary {
   @apply w-full font-medium bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer;
 }

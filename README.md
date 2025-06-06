@@ -15,11 +15,21 @@
 - setup folder structures and files
 - setup needed routes
 
-2 - start building Components 
-  
-  - building Auth components
-    - build login form
+2 - start building Components
 
-  - build register form
+- building Auth components
 
+  - build login form
+  - create layout component
+    - hold the login and register page layout
+  - create input component
+  - handle email validation(regex)
+  - handle password & password toggle
+  - link login to register page for not registered user
 
+- build register form
+  - handle background layout
+  - handle register form
+    - add input for fullName, email, password and admin invite code
+    - handle Profile Image
+      - can be in separate component

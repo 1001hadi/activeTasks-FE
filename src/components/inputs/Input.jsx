@@ -32,7 +32,7 @@ const Input = ({ type, value, onChange, label, placeholder }) => {
               <FaRegEyeSlash
                 size={22}
                 onClick={togglePassword}
-                className=" text-slate-500 cursor-pointer"
+                className=" text-slate-600 cursor-pointer"
               />
             )}
           </>

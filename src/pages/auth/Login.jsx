@@ -19,8 +19,9 @@ const Login = () => {
       return;
     }
 
-    if (!password) {
+    if (!password || password.length < 6) {
       setError("Password required!");
+      return;
     }
 
     setError("");
@@ -60,9 +61,12 @@ const Login = () => {
             </button>
 
             <p className="text-[15px] text-slate-800 mt-3">
-              Not a user? Register here?{" "}
-              <Link className="font-medium text-green underline" to="/register">
-                Register
+              Not a user? you can register{" "}
+              <Link
+                className="font-medium text-primary underline"
+                to="/register"
+              >
+                here
               </Link>
             </p>
           </form>
