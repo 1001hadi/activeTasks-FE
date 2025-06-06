@@ -9,7 +9,7 @@ const AuthLayout = ({ children }) => {
         {children}
       </div>
       <div className="hidden md:flex w-[80vw] h-screen item-center justify-center overflow-hidden">
-        <img src={Login_IMG} alt="task-image" className="lg:w-[90%]" />
+        <img src={Login_IMG} alt="task-image" className="lg:w-[100%]" />
       </div>
     </div>
   );
