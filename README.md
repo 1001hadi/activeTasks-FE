@@ -10,4 +10,9 @@
 
 - install react-router and needed libraries
 - instal tailwind css
+- install all needed package and library
+  - axios react-router-dom react-icon react-hot-tost moment recharts
+- setup folder structures and files
+- setup needed routes
+
 
