@@ -15,4 +15,11 @@
 - setup folder structures and files
 - setup needed routes
 
+2 - start building Components 
+  
+  - building Auth components
+    - build login form
+
+  - build register form
+
 
