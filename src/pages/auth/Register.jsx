@@ -3,6 +3,7 @@ import AuthLayout from "../../components/layouts/AuthLayout";
 import { validateEmail } from "../../utilities/helper";
 import AddProfileImg from "../../components/inputs/AddProfileImg";
 import Input from "../../components/inputs/Input";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [profileImg, setProfileImg] = useState(null);
@@ -51,7 +52,42 @@ const Register = () => {
               onChange={({ target }) => setFullName(target.value)}
               placeholder="First & Last"
             />
+            <Input
+              type="text"
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
+              label="Email Address"
+              placeholder="task@login.com"
+            />
+
+            <Input
+              type="password"
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+              label="Password"
+              placeholder="Password min 6 characters"
+            />
+            <Input
+              type="text"
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+              label="Admin Code"
+              placeholder="Enter admin invite code here"
+            />
           </div>
+
+          {error && <p className="text-red-500 text-s pb-2.5">{error}</p>}
+
+          <button type="submit" className="btn-primary">
+            Register
+          </button>
+
+          <p className="text-[15px] text-slate-800 mt-3">
+            Already a user? go to login{" "}
+            <Link className="font-medium text-primary underline" to="/login">
+              here
+            </Link>
+          </p>
         </form>
       </div>
     </AuthLayout>
