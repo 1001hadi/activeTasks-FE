@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import Input from "../../components/inputs/Input";
+import { validateEmail } from "../../utilities/helper";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +13,17 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    if (!validateEmail(email)) {
+      setError("Email must be valid!");
+      return;
+    }
+
+    if (!password) {
+      setError("Password required!");
+    }
+
+    setError("");
   };
 
   return (
@@ -24,7 +36,7 @@ const Login = () => {
           <p className="text-md text-slate-700 mt-[5px] mb-6">
             Enter your credentials to login
           </p>
-          <form onSubmit="handleLogin">
+          <form onSubmit={handleLogin}>
             <Input
               type="text"
               value={email}
@@ -40,6 +52,19 @@ const Login = () => {
               label="Password"
               placeholder="Password min 6 characters"
             />
+
+            {error && <p className="text-red-500 text-s pb-2.5">{error}</p>}
+
+            <button type="submit" className="btn-primary">
+              Login
+            </button>
+
+            <p className="text-[15px] text-slate-800 mt-3">
+              Not a user? Register here?{" "}
+              <Link className="font-medium text-green underline" to="/register">
+                Register
+              </Link>
+            </p>
           </form>
         </div>
       </AuthLayout>
