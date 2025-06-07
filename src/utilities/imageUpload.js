@@ -7,7 +7,7 @@ const uploadImage = async (imageFile) => {
   formData.append("image", imageFile);
 
   try {
-    const response = await axiosInstance.post(
+    const res = await axiosInstance.post(
       API_PATHS.IMAGE.UPLOAD_IMAGE,
       formData,
       {
@@ -18,11 +18,11 @@ const uploadImage = async (imageFile) => {
       }
     );
     // Return response data
-    return response.data;
+    return res.data;
   } catch (err) {
     console.error("Error uploading the image:", err);
     // Rethrow error for handling
-    throw error;
+    throw err;
   }
 };
 

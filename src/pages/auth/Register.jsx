@@ -10,11 +10,11 @@ import { userContext } from "../../context/userContext";
 import uploadImage from "../../utilities/imageUpload";
 
 const Register = () => {
-  const [profileImg, setProfileImg] = useState(null);
+  const [profileImage, setProfileImage] = useState(null);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [adminCode, setAdminCode] = useState("");
+  const [adminInviteCode, setAdminInviteCode] = useState("");
   const [error, setError] = useState(null);
 
   const { updateUser } = useContext(userContext);
@@ -44,16 +44,16 @@ const Register = () => {
     // handle api call
     try {
       // upload profile image
-      if (profileImg) {
-        const imgUploadRes = await uploadImage(profileImg);
-        profileImageUrl = imgUploadRes.imageUrl || "";
+      if (profileImage) {
+        const imgUploadRes = await uploadImage(profileImage);
+        profileImageUrl = imgUploadRes.imgUrl;
       }
       const res = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         name: fullName,
         email,
         password,
         profileImageUrl,
-        adminCode,
+        adminCode: adminInviteCode,
       });
 
       const { token, role } = res.data;
@@ -65,7 +65,7 @@ const Register = () => {
         // redirect depend on role
         role === "admin"
           ? navigate("/admin/dashboard")
-          : navigate("user/dashboard");
+          : navigate("/user/dashboard");
       }
     } catch (error) {
       if (error.res && error.res.data.message) {
@@ -85,7 +85,7 @@ const Register = () => {
         </p>
 
         <form onSubmit={handleRegister}>
-          <AddProfileImg image={profileImg} setImage={setProfileImg} />
+          <AddProfileImg image={profileImage} setImage={setProfileImage} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               type="text"
@@ -111,8 +111,8 @@ const Register = () => {
             />
             <Input
               type="text"
-              value={adminCode}
-              onChange={({ target }) => setAdminCode(target.value)}
+              value={adminInviteCode}
+              onChange={({ target }) => setAdminInviteCode(target.value)}
               label="Admin Code"
               placeholder="Enter admin invite code here"
             />
