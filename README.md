@@ -26,6 +26,7 @@
   - handle email validation(regex)
   - handle password & password toggle
   - link login to register page for not registered user
+  
 
 - build register form
   - handle background layout
@@ -39,3 +40,11 @@
   - handle fetch(with axios) 
   - handle storing token in local storage
   - handle errors and redirecting to login page
+
+- create userContext hook for state management
+    - create userProvider and fetch user with useEffect
+    - import api paths and fetches 
+    - store token in local storage
+    - update the user and keep token
+    - clear local storage if logout
+    - handle error and test the login
