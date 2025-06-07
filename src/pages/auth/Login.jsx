@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import Input from "../../components/inputs/Input";
 import { validateEmail } from "../../utilities/helper";
+import axiosInstance from "../../utilities/axiosInstance";
+import { API_PATHS } from "../../utilities/apiPaths";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,12 +28,29 @@ const Login = () => {
 
     setError("");
 
-    //handle api call 
+    //handle api call
     try {
-      
-    } catch (err) {
-      console.error(err);
-      
+      const res = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+        email,
+        password,
+      });
+
+      const { token, role } = res.data;
+
+      if (token) {
+        localStorage.setItem("token", token);
+      }
+
+      // redirect depend on role
+      role === "admin"
+        ? navigate("/admin/dashboard")
+        : navigate("user/dashboard");
+    } catch (error) {
+      if (error.res && error.res.data.message) {
+        setError(error.res.data.message);
+      } else {
+        setError("Error occurred, try again!");
+      }
     }
   };
 

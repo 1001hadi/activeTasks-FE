@@ -33,3 +33,9 @@
     - add input for fullName, email, password and admin invite code
     - handle Profile Image
       - can be in separate component
+
+- build API paths and handle fetch request
+  - create API paths for all needed paths
+  - handle fetch(with axios) 
+  - handle storing token in local storage
+  - handle errors and redirecting to login page
