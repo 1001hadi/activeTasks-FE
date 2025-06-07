@@ -44,7 +44,7 @@ const AddProfileImg = ({ image, setImage }) => {
           <button
             type="button"
             onClick={handleRemoveImg}
-            className="w-8 h-8 flex justify-center bg-red-500 text-white absolute -bottom-1 rounded-full -right-1"
+            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white absolute -bottom-1 rounded-full -right-1"
           >
             <LuTrash />
           </button>

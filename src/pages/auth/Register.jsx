@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { validateEmail } from "../../utilities/helper";
 import AddProfileImg from "../../components/inputs/AddProfileImg";
 import Input from "../../components/inputs/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axiosInstance from "../../utilities/axiosInstance";
+import { API_PATHS } from "../../utilities/apiPaths";
+import { userContext } from "../../context/userContext";
+import uploadImage from "../../utilities/imageUpload";
 
 const Register = () => {
   const [profileImg, setProfileImg] = useState(null);
@@ -13,8 +17,12 @@ const Register = () => {
   const [adminCode, setAdminCode] = useState("");
   const [error, setError] = useState(null);
 
+  const { updateUser } = useContext(userContext);
+  const navigate = useNavigate();
+
   const handleRegister = async (e) => {
     e.preventDefault();
+    let profileImageUrl = "";
 
     if (!fullName) {
       setError("Enter full name!");
@@ -32,6 +40,40 @@ const Register = () => {
     }
 
     setError("");
+
+    // handle api call
+    try {
+      // upload profile image
+      if (profileImg) {
+        const imgUploadRes = await uploadImage(profileImg);
+        profileImageUrl = imgUploadRes.imageUrl || "";
+      }
+      const res = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+        name: fullName,
+        email,
+        password,
+        profileImageUrl,
+        adminCode,
+      });
+
+      const { token, role } = res.data;
+
+      if (token) {
+        localStorage.setItem("token", token);
+        updateUser(res.data);
+
+        // redirect depend on role
+        role === "admin"
+          ? navigate("/admin/dashboard")
+          : navigate("user/dashboard");
+      }
+    } catch (error) {
+      if (error.res && error.res.data.message) {
+        setError(error.res.data.message);
+      } else {
+        setError("Error occurred, try again!");
+      }
+    }
   };
 
   return (
@@ -69,8 +111,8 @@ const Register = () => {
             />
             <Input
               type="text"
-              value={password}
-              onChange={({ target }) => setPassword(target.value)}
+              value={adminCode}
+              onChange={({ target }) => setAdminCode(target.value)}
               label="Admin Code"
               placeholder="Enter admin invite code here"
             />

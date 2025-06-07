@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useContext } from "react";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import PrivateRoute from "./routes/PrivateRoute";
@@ -10,7 +10,7 @@ import ManageUsers from "./pages/admin/ManageUsers";
 import UserDashboard from "./pages/user/UserDashboard";
 import UserTasks from "./pages/user/UserTasks";
 import UserTaskDetails from "./pages/user/UserTaskDetails";
-import UserProvider from "./context/userContext";
+import UserProvider, { userContext } from "./context/userContext";
 
 function App() {
   return (
@@ -36,6 +36,8 @@ function App() {
               element={<UserTaskDetails />}
             />
           </Route>
+          {/* default route */}
+          <Route path="/" element={<Root />} />
         </Routes>
       </div>
     </UserProvider>
@@ -43,3 +45,17 @@ function App() {
 }
 
 export default App;
+
+const Root = () => {
+  const { user, loding } = useContext(userContext);
+
+  if (loding) return <Outlet />;
+
+  if (!user) return <Navigate to="/login" />;
+
+  return user.role === "admin" ? (
+    <Navigate to="/admin/dashboard" />
+  ) : (
+    <Navigate to="/user/dashboard" />
+  );
+};
