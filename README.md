@@ -74,3 +74,7 @@
     - create data file fro side menu to render info
       - create object of data for admin, user, status and priority level
     - import them to sidebar and map the data to display it depending on role(admin or user)
+
+  - display dashboard data (tasks, task status, task-priority level)
+    - display admin/user name and date when login
+    - 

@@ -69,13 +69,14 @@ const SideMenu = ({ activeMenu }) => {
 
         <p className="text-[14px] text-gray-500">{user?.email || ""}</p>
       </div>
+
       {/*  display sidebar menu data with icons */}
       {sideMenuData.map((item, index) => (
         <button
           key={`menu_${index}`}
           className={`w-full flex items-center gap-4 text-[20px]  ${
             activeMenu == item.label
-              ? "text-primary bg-linear-to-r from-blue-50/40 to-blue-100/50 border-r-3"
+              ? "text-green-800 bg-gradient-to-r from-green-50/40 to-green-100/50 border-r-3"
               : ""
           } py-3 px-6 mb-3 cursor-pointer`}
           onClick={() => handleClick(item.path)}
