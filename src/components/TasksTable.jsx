@@ -5,7 +5,7 @@ const TasksTable = ({ tableData }) => {
   const handleStatusColor = (status) => {
     switch (status) {
       case "Complete":
-        return "bg-lime-600 text-lime-500 border border-lime-800";
+        return "bg-green-800 text-lime-500 border border-lime-800";
       case "Pending":
         return "bg-orange-700 text-white border border-orange-200";
       case "Progress":
@@ -22,7 +22,7 @@ const TasksTable = ({ tableData }) => {
       case "Medium":
         return "bg-orange-100 text-orange-500 border border-orange-200";
       case "Low":
-        return "bg-green-600 text-white border border-green-200";
+        return "bg-green-800 text-white border border-green-200";
       default:
         return "bg-gray-100 text-gray-500 border border-gray-200";
     }

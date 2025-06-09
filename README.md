@@ -80,11 +80,13 @@
     - create info component to display tasks status percentage
       - create separator function to display task numbers
     - display tasks status percentage of (pending, progress, complete)
-      -
+      - create show status component
+      - using rechart library display status chart
+      - display the status count
     - display task priority percentage of (low, medium, high)
-      -
+      - create priority level component
+        -using rechart library display priority chart
     - display recent tasks table
       - create taskTable component
       - thead to display(name, status, priority and create date)
       - tbody to display data
-

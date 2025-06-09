@@ -11,6 +11,10 @@ import { IoMdCard } from "react-icons/io";
 import { addSeparator } from "../../utilities/helper";
 import { LuArrowRight } from "react-icons/lu";
 import TasksTable from "../../components/TasksTable";
+import CustomPieChart from "../../components/charts/CustomPieChart";
+import CustomBarChart from "../../components/charts/CustomBarChart";
+
+const COLORS = ["#ec8507", "#f1cb31", "#0b590b"];
 
 const Dashboard = () => {
   useUserAuth();
@@ -113,6 +117,25 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-4 md:my-6">
+        <div>
+          <div className="card">
+            <div className="flex items-center justify-between">
+              <h5 className="font-medium">Tasks Percentages</h5>
+            </div>
+
+            <CustomPieChart data={pieChartData} colors={COLORS} />
+          </div>
+        </div>
+
+        <div>
+          <div className="card">
+            <div className="flex items-center justify-between">
+              <h5 className="font-medium">Tasks Priority Levels</h5>
+            </div>
+
+            <CustomBarChart data={barChartData} />
+          </div>
+        </div>
 
         <div className="md:col-span-2">
           <div className="card">
