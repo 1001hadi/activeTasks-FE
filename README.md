@@ -45,9 +45,32 @@
   - handle errors and redirecting to login page
 
 - create userContext hook for state management
+
   - create userProvider and fetch user with useEffect
   - import api paths and fetches
   - store token in local storage
   - update the user and keep token
   - clear local storage if logout
   - handle error and test the login
+
+- create Dashboard interface
+
+  - create userAuth hook
+
+    - check if it user display dash, else redirect to login
+
+  - use the hook in admin and user dashboard
+    - check users data with json.stringify(if there is data to display!)
+  - create Dashboard layout component
+
+    - create navbar component
+
+      - display sidebar menu
+
+    - create sidebar menu
+      - display info depending on role (admin or user)
+      - display changed or added info depending on role
+      - redirect to login page if logout
+    - create data file fro side menu to render info
+      - create object of data for admin, user, status and priority level
+    - import them to sidebar and map the data to display it depending on role(admin or user)
