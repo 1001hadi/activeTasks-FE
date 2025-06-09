@@ -77,4 +77,6 @@
 
   - display dashboard data (tasks, task status, task-priority level)
     - display admin/user name and date when login
-    - 
+    - create info component to display tasks status percentage
+      - create separator function to display task numbers
+

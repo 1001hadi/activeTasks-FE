@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utilities/axiosInstance";
 import { API_PATHS } from "../../utilities/apiPaths";
 import moment from "moment";
+import DisplayInfoCard from "../../components/cards/DisplayInfoCard";
+import { IoMdCard } from "react-icons/io";
+import { addSeparator } from "../../utilities/helper";
 
 const Dashboard = () => {
   useUserAuth();
@@ -45,6 +48,40 @@ const Dashboard = () => {
               {moment().format("dddd Do MMM YYYY")}
             </p>
           </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-5">
+          <DisplayInfoCard
+            icon={<IoMdCard />}
+            label="Total Tasks"
+            value={addSeparator(
+              dashboardData?.charts?.taskDistribution?.All || 0
+            )}
+            color="bg-primary"
+          />
+
+          <DisplayInfoCard
+            label="Pending Tasks"
+            value={addSeparator(
+              dashboardData?.charts?.taskPercentage?.Pending || 0
+            )}
+            color="bg-orange-800"
+          />
+
+          <DisplayInfoCard
+            label="Progress Tasks"
+            value={addSeparator(
+              dashboardData?.charts?.taskPercentage?.Progress || 0
+            )}
+            color="bg-yellow-300"
+          />
+
+          <DisplayInfoCard
+            label="Complete Tasks"
+            value={addSeparator(
+              dashboardData?.charts?.taskPercentage?.Complete || 0
+            )}
+            color="bg-lime-600"
+          />
         </div>
       </div>
     </DashboardLayout>
