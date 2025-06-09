@@ -8,19 +8,7 @@ const SideMenu = ({ activeMenu }) => {
   // console.log("Current user object:", user);
   const [sideMenuData, setSideMenuData] = useState([]);
 
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   console.log("SideMenu - user object:", user);
-  //   if (user) {
-  //     console.log("SideMenu - user.role:", user.role);
-  //     setSideMenuData(
-  //       user?.role === "admin" ? SIDE_MENU_DATA : SIDE_MENU_USER_DATA
-  //     );
-  //   } else {
-  //     console.log("SideMenu - user is null or undefined.");
-  //     setSideMenuData(SIDE_MENU_USER_DATA); // Or a default empty state
-  //   }
-  // }, [user]);
+  const navigate = useNavigate();
 
   const handleClick = (route) => {
     if (route === "logout") {

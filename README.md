@@ -75,18 +75,33 @@
       - create object of data for admin, user, status and priority level
     - import them to sidebar and map the data to display it depending on role(admin or user)
 
-  - display dashboard data (tasks, task status, task-priority level)
-    - display admin/user name and date when login
-    - create info component to display tasks status percentage
-      - create separator function to display task numbers
-    - display tasks status percentage of (pending, progress, complete)
-      - create show status component
-      - using rechart library display status chart
-      - display the status count
-    - display task priority percentage of (low, medium, high)
-      - create priority level component
-        -using rechart library display priority chart
-    - display recent tasks table
-      - create taskTable component
-      - thead to display(name, status, priority and create date)
-      - tbody to display data
+- display dashboard data (tasks, task status, task-priority level)
+
+  - display admin/user name and date when login
+  - create info component to display tasks status percentage
+    - create separator function to display task numbers
+  - display tasks status percentage of (pending, progress, complete)
+    - create show status component
+    - using rechart library display status chart
+    - display the status count
+  - display task priority percentage of (low, medium, high)
+    - create priority level component
+      -using rechart library display priority chart
+  - display recent tasks table
+    - create taskTable component
+    - thead to display(name, status, priority and create date)
+    - tbody to display data
+
+- Create task page
+  - create function to start create, edit, remove and get task
+  - import the data and axiosInstance files
+  -
+  - create task
+    - store current tasks in state
+    - create task function
+    - display task details
+    - add task checklist
+    - add task attachments / link
+    - assign task to user / can be dropdown menu
+    - update task / admin only
+    - remove task admin only
