@@ -79,4 +79,12 @@
     - display admin/user name and date when login
     - create info component to display tasks status percentage
       - create separator function to display task numbers
+    - display tasks status percentage of (pending, progress, complete)
+      -
+    - display task priority percentage of (low, medium, high)
+      -
+    - display recent tasks table
+      - create taskTable component
+      - thead to display(name, status, priority and create date)
+      - tbody to display data
 
