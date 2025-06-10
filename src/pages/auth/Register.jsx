@@ -67,9 +67,9 @@ const Register = () => {
           ? navigate("/admin/dashboard")
           : navigate("/user/dashboard");
       }
-    } catch (error) {
-      if (error.res && error.res.data.message) {
-        setError(error.res.data.message);
+    } catch (err) {
+      if (err.res && err.res.data.message) {
+        setError(err.res.data.message);
       } else {
         setError("Error occurred, try again!");
       }

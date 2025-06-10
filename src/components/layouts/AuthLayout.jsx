@@ -1,11 +1,13 @@
 import React from "react";
-import Login_IMG from "../../assets/images/login2.jpg";
+import Login_IMG from "../../assets/images/login4.jpg";
 
 const AuthLayout = ({ children }) => {
   return (
     <div className="flex">
       <div className="w-screen h-screen md:w[60w] px-12 pt-8 pb-12">
-        <h2 className="text-xl font-medium text-black">Active Tasks</h2>
+        <h2 className="text-2xl font-medium text-black text-green-800">
+          Active Tasks
+        </h2>
         {children}
       </div>
       <div className="hidden md:flex w-[80vw] h-screen item-center justify-center overflow-hidden">

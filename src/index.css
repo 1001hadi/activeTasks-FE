@@ -15,11 +15,11 @@
 }
 
 .text-primary {
-  @apply text-blue-700;
+  @apply text-green-700;
 }
 
 .btn-primary {
-  @apply w-full font-medium bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer;
+  @apply w-full font-medium bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded cursor-pointer;
 }
 
 .card {
@@ -43,5 +43,5 @@
 }
 
 .add-btn {
-  @apply w-full flex items-center justify-center gap-1.5  md:text-sm font-medium text-white whitespace-nowrap bg-green-800 hover:bg-white hover:text-green-800 border border-green-800 rounded-lg px-4 py-2 cursor-pointer;
+  @apply w-full flex items-center justify-center gap-1.5  md:text-sm font-medium text-white whitespace-nowrap bg-green-700 hover:bg-green-800 hover:text-white border border-green-800 rounded-lg px-4 py-2 cursor-pointer;
 }

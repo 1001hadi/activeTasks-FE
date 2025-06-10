@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { LuUser, LuUpload, LuTrash } from "react-icons/lu";
+import { LuUser, LuTrash } from "react-icons/lu";
+import { RiVideoUploadLine } from "react-icons/ri";
 
 const AddProfileImg = ({ image, setImage }) => {
   const inputRef = useRef(null);
@@ -55,10 +56,10 @@ const AddProfileImg = ({ image, setImage }) => {
           <LuUser className="text-4xl text-primary" />
           <button
             type="button"
-            className="w-8 h-8 flex items-center justify-center bg-blue-600 text-white absolute -bottom-1 -right-1 rounded-full cursor-pointer"
+            className="w-8 h-8 flex items-center justify-center bg-green-600 text-white absolute -bottom-1 -right-1 rounded-full cursor-pointer"
             onClick={handleChooseImg}
           >
-            <LuUpload />
+            <RiVideoUploadLine />
           </button>
         </div>
       )}
