@@ -5,26 +5,26 @@ const TasksTable = ({ tableData }) => {
   const handleStatusColor = (status) => {
     switch (status) {
       case "Complete":
-        return "bg-green-800 text-white  ";
+        return "w-16 h-6 text-center bg-green-800 text-white  ";
       case "Pending":
-        return "bg-orange-500 text-white  ";
+        return "w-16 h-6 text-center bg-orange-500 text-white  ";
       case "Progress":
-        return "bg-yellow-500 text-white  ";
+        return "w-16 h-6 text-center bg-yellow-500 text-white  ";
       default:
-        return "bg-gray-100 text-gray-500  ";
+        return "w-16 h-6 text-center bg-gray-100 text-gray-500  ";
     }
   };
 
   const handlePriorityColor = (priority) => {
     switch (priority) {
       case "High":
-        return "bg-red-600 text-white";
+        return "w-16 h-6 text-center bg-red-600 text-white";
       case "Medium":
-        return "bg-orange-300 text-white";
+        return "w-16 h-6 text-center bg-orange-300 text-white";
       case "Low":
-        return "bg-emerald-500 text-white";
+        return "w-16 h-6 text-center bg-teal-500 text-white";
       default:
-        return "bg-gray-100 text-gray-500";
+        return "w-16 h-6 text-center bg-gray-100 text-gray-500";
     }
   };
 
@@ -73,7 +73,7 @@ const TasksTable = ({ tableData }) => {
               </td>
               <td className="py-4 px-4 text-gray-700 text-[13px] text-nowrap hidden md:table-cell">
                 {task.createdAt
-                  ? moment(task.createdAt).format("Do MMM YYYY")
+                  ? moment(task.createdAt).format("MM/DD/YYYY")
                   : "N/A"}
               </td>
             </tr>
