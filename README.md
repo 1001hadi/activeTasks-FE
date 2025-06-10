@@ -99,9 +99,13 @@
   - create task
     - store current tasks in state
     - create task function
-    - display task details
-    - add task checklist
+    - add task title
+    - add task details
+    - assign task to user / can be  modal with check box 
+    - add priority level / can be dropdown menu
+    - must have due date
+    - add task checklist/ can be multiple 
     - add task attachments / link
-    - assign task to user / can be dropdown menu
     - update task / admin only
     - remove task admin only
+    - must have submit BTN

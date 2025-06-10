@@ -20,7 +20,7 @@ const TasksTable = ({ tableData }) => {
       case "High":
         return "bg-red-500 text-white border border-red-200";
       case "Medium":
-        return "bg-orange-100 text-orange-500 border border-orange-200";
+        return "bg-orange-300 text-white border border-orange-200";
       case "Low":
         return "bg-green-800 text-white border border-green-200";
       default:
