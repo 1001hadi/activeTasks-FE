@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { API_PATHS } from "../../utilities/apiPaths";
 import axiosInstance from "../../utilities/axiosInstance";
-import { LuUsers } from "react-icons/lu";
 import Modal from "../Modal";
 import AvatarGroup from "../AvatarGroup";
+import { FaUsers } from "react-icons/fa";
 
 const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
   const [allUsers, setAllUsers] = useState([]);
@@ -54,7 +54,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
     <div className="space-y-4 mt-2">
       {selectedUserAvatars.length === 0 && (
         <button className="card-btn" onClick={() => setIsModalOpen(true)}>
-          <LuUsers className="text-sm" /> Add Members
+          <FaUsers className="text-lg" /> Select Users
         </button>
       )}
 

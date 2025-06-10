@@ -101,11 +101,13 @@
     - create task function
     - add task title
     - add task details
-    - assign task to user / can be  modal with check box 
+    - assign task to user / can be modal with check box
     - add priority level / can be dropdown menu
     - must have due date
-    - add task checklist/ can be multiple 
+    - add task checklist/ can be multiple
     - add task attachments / link
     - update task / admin only
     - remove task admin only
+    - task title, desc, assigned to, due date
     - must have submit BTN
+    - handle error

@@ -10,6 +10,7 @@ import { LuTrash2 } from "react-icons/lu";
 import SelectDropdown from "../../components/inputs/SelectDropdown";
 import SelectUsers from "../../components/inputs/SelectUsers";
 import CheckListInput from "../../components/inputs/CheckListInput";
+import AddAttachmentsInput from "../../components/inputs/AddAttachmentsInput";
 
 const CreateTask = () => {
   const location = useLocation();
@@ -46,14 +47,14 @@ const CreateTask = () => {
       attachments: [],
     });
   };
-
+  // create task
   const createTask = async () => {
     setLoading(true);
 
     try {
       const checklist = taskData.checklist?.map((item) => ({
         text: item,
-        completed: false,
+        complete: false,
       }));
 
       const res = await axiosInstance.post(API_PATHS.TASKS.CREATE_TASK, {
@@ -62,22 +63,67 @@ const CreateTask = () => {
         checklist: checklist,
       });
 
-      toast.success("Task Created Successfully");
+      toast.success("Task created successfully");
 
       clearData();
-    } catch (error) {
-      console.error("Error creating task:", error);
+    } catch (err) {
+      console.error("error creating task:", err);
       setLoading(false);
     } finally {
       setLoading(false);
     }
   };
 
+  // handle submit
+  const handleSubmit = async () => {
+    setError(null);
+    // input validator for error
+    if (!taskData.title.trim()) {
+      setError("Title is required.");
+      return;
+    }
+    if (!taskData.description.trim()) {
+      setError("Description must be added!");
+      return;
+    }
+
+    if (taskData.assignedTo?.length === 0) {
+      setError("Task must be assigned to user!");
+      return;
+    }
+
+    if (!taskData.dueDate) {
+      setError("Due date  required.");
+      return;
+    }
+
+    if (taskData.checklist?.length === 0) {
+      setError("Checklist must be added!");
+      return;
+    }
+
+    if (taskId) {
+      handleEditTask();
+      return;
+    }
+
+    createTask();
+  };
+
+  // get task by id of user
+  const getTaskDetailsById = async () => {};
+
+  // update task
+  const handleEditTask = async () => {};
+
+  // delete task
+  const handleRemoveTask = async () => {};
+
   return (
     <DashboardLayout activeMenu="Create Task">
       <div className="mt-5">
         <div className="grid grid-cols-1 md:grid-cols-4 mt-4">
-          <div className="form-card col-span-3">
+          <div className="form-card col-span-6">
             <div className="flex items-center justify-between">
               <h2 className="text-xl md:text-xl font-medium">
                 {taskId ? "Update Task" : "Create Task"}
@@ -172,6 +218,30 @@ const CreateTask = () => {
                 checklist={taskData?.checklist}
                 setCheckList={(value) => handleValueChange("checklist", value)}
               />
+            </div>
+            <div className="mt-3">
+              <label className="text-xs font-medium text-slate-600">
+                Add Attachments
+              </label>
+
+              <AddAttachmentsInput
+                attachments={taskData?.attachments}
+                setAttachments={(value) =>
+                  handleValueChange("attachments", value)
+                }
+              />
+            </div>
+            {error && (
+              <p className="text-xs font-medium text-red-700 mt-5">{error}</p>
+            )}
+            <div className="flex justify-end mt-7">
+              <button
+                className="add-btn"
+                onClick={handleSubmit}
+                disabled={loading}
+              >
+                {taskId ? "UPDATE TASK" : "CREATE TASK"}
+              </button>
             </div>
           </div>
         </div>
