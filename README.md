@@ -93,6 +93,7 @@
     - tbody to display data
 
 - Create task page
+
   - create function to start create, edit, remove and get task
   - import the data and axiosInstance files
   -
@@ -111,3 +112,12 @@
     - task title, desc, assigned to, due date
     - must have submit BTN
     - handle error
+
+- Create manage task page
+  - Display all task
+  - display each task with Card
+  - only admin can see all tasks
+  - only admin can manage edit/remove task
+  - edit can be the same as create page
+  - task card
+    - display task with name, description, due date, status and assigned o(users)
