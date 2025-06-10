@@ -41,6 +41,7 @@ function App() {
           <Route path="/" element={<Root />} />
         </Routes>
       </div>
+      {/* handle popup msg */}
       <Toaster
         toastOptions={{
           className: "",

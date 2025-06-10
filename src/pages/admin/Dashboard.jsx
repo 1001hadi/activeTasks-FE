@@ -86,7 +86,7 @@ const Dashboard = () => {
             icon={<IoMdCard />}
             label="Total Tasks"
             value={addSeparator(
-              dashboardData?.charts?.taskDistribution?.All || 0
+              dashboardData?.charts?.taskPercentage?.All || 0
             )}
             color="bg-green-800"
           />
@@ -96,7 +96,7 @@ const Dashboard = () => {
             value={addSeparator(
               dashboardData?.charts?.taskPercentage?.Pending || 0
             )}
-            color="bg-orange-800"
+            color="bg-orange-600"
           />
 
           <DisplayInfoCard

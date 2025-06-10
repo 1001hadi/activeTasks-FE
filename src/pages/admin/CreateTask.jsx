@@ -145,7 +145,7 @@ const CreateTask = () => {
               </label>
 
               <input
-                placeholder="Create App UI"
+                placeholder="Task name..."
                 className="form-input"
                 value={taskData.title}
                 onChange={({ target }) =>
@@ -159,7 +159,7 @@ const CreateTask = () => {
               </label>
 
               <textarea
-                placeholder="Describe task"
+                placeholder="Describe..."
                 className="form-input"
                 rows={4}
                 value={taskData.description}
@@ -199,7 +199,6 @@ const CreateTask = () => {
                 </label>
 
                 <input
-                  placeholder="Create App UI"
                   className="form-input"
                   value={taskData.dueDate}
                   onChange={({ target }) =>

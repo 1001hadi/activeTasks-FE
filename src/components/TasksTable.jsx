@@ -5,26 +5,26 @@ const TasksTable = ({ tableData }) => {
   const handleStatusColor = (status) => {
     switch (status) {
       case "Complete":
-        return "bg-green-800 text-lime-500 border border-lime-800";
+        return "bg-green-700 text-white  ";
       case "Pending":
-        return "bg-orange-700 text-white border border-orange-200";
+        return "bg-orange-500 text-white  ";
       case "Progress":
-        return "bg-yellow-300 text-white border border-cyan-200";
+        return "bg-yellow-500 text-white  ";
       default:
-        return "bg-gray-100 text-gray-500 border border-gray-200";
+        return "bg-gray-100 text-gray-500  ";
     }
   };
 
   const handlePriorityColor = (priority) => {
     switch (priority) {
       case "High":
-        return "bg-red-500 text-white border border-red-200";
+        return "bg-red-600 text-white";
       case "Medium":
-        return "bg-orange-300 text-white border border-orange-200";
+        return "bg-orange-300 text-white";
       case "Low":
-        return "bg-green-800 text-white border border-green-200";
+        return "bg-teal-600 text-white";
       default:
-        return "bg-gray-100 text-gray-500 border border-gray-200";
+        return "bg-gray-100 text-gray-500";
     }
   };
 
