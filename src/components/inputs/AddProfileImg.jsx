@@ -1,4 +1,4 @@
-import  { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { LuUser, LuUpload, LuTrash } from "react-icons/lu";
 
 const AddProfileImg = ({ image, setImage }) => {
@@ -34,10 +34,11 @@ const AddProfileImg = ({ image, setImage }) => {
         onChange={handleImgChange}
         className="hidden"
       />
-      {image ? ( // If an image is selected/exists, display it and allow removal
+      {image ? (
         <div className="relative">
+          {/* Assuming previewPath is derived from 'image' */}
           <img
-            src={previewPath} // Assuming previewPath is derived from 'image'
+            src={previewPath}
             alt="profile-image"
             className="w-20 h-20 rounded-full object-cover"
           />

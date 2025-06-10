@@ -9,6 +9,7 @@ import moment from "moment";
 import { LuTrash2 } from "react-icons/lu";
 import SelectDropdown from "../../components/inputs/SelectDropdown";
 import SelectUsers from "../../components/inputs/SelectUsers";
+import CheckListInput from "../../components/inputs/CheckListInput";
 
 const CreateTask = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const CreateTask = () => {
     priority: "Low",
     dueDate: null,
     assignedTo: [],
-    todoChecklist: [],
+    checklist: [],
     attachments: [],
   });
   const [currentTask, setCurrentTask] = useState(null);
@@ -41,7 +42,7 @@ const CreateTask = () => {
       priority: "Low",
       dueDate: null,
       assignedTo: [],
-      todoChecklist: [],
+      checklist: [],
       attachments: [],
     });
   };
@@ -50,7 +51,7 @@ const CreateTask = () => {
     setLoading(true);
 
     try {
-      const todolist = taskData.todoChecklist?.map((item) => ({
+      const checklist = taskData.checklist?.map((item) => ({
         text: item,
         completed: false,
       }));
@@ -58,7 +59,7 @@ const CreateTask = () => {
       const res = await axiosInstance.post(API_PATHS.TASKS.CREATE_TASK, {
         ...taskData,
         dueDate: new Date(taskData.dueDate).toISOString(),
-        todoChecklist: todolist,
+        checklist: checklist,
       });
 
       toast.success("Task Created Successfully");
@@ -161,6 +162,16 @@ const CreateTask = () => {
                   type="date"
                 />
               </div>
+            </div>
+            <div className="mt-3">
+              <label className="text-xs font-medium text-slate-600">
+                Task Checklist
+              </label>
+
+              <CheckListInput
+                checklist={taskData?.checklist}
+                setCheckList={(value) => handleValueChange("checklist", value)}
+              />
             </div>
           </div>
         </div>
