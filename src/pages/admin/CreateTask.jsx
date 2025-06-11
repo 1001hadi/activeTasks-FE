@@ -139,8 +139,8 @@ const CreateTask = () => {
       console.error("can't fetch", err);
     }
   };
-  // console.log(currentTask)
-  // update task
+
+  // edit task
   const handleEditTask = async () => {
     setLoading(true);
 
@@ -170,7 +170,7 @@ const CreateTask = () => {
     }
   };
 
-  // delete task
+  // remove task
   const handleRemoveTask = async () => {
     try {
       await axiosInstance.delete(API_PATHS.TASKS.DELETE_TASK(taskId));
