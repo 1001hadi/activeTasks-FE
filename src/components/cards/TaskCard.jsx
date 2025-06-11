@@ -1,6 +1,5 @@
 import moment from "moment";
 import Progress from "../Progress";
-import AvatarGroup from "../AvatarGroup";
 import { LuPaperclip } from "react-icons/lu";
 
 const TaskCard = ({
@@ -17,6 +16,7 @@ const TaskCard = ({
   checklist,
   onClick,
 }) => {
+  // console.log(assignedTo)
   const getStatusTagColor = () => {
     switch (status) {
       case "Progress":
@@ -85,20 +85,23 @@ const TaskCard = ({
           <div>
             <label className="text-xs text-gray-500">Start Date</label>
             <p className="text-[13px] font-medium text-gray-900">
-              {moment(createdAt).format("Do MMM YYYY")}
+              {moment(createdAt).format("MM/DD/YYYY")}
             </p>
           </div>
 
           <div>
             <label className="text-xs text-gray-500">Due Date</label>
             <p className="text-[13px] font-medium text-gray-900">
-              {moment(dueDate).format("Do MMM YYYY")}
+              {moment(dueDate).format("MM/DD/YYYY")}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center justify-between mt-3">
-          <AvatarGroup avatars={assignedTo || []} />
+        <div className="flex items-center justify-between  mt-3">
+          <div>
+            <label className="text-xs text-gray-500">Assign To:</label>
+            <div className="text-sm">{`${assignedTo}`}</div>
+          </div>
 
           {attachmentCount > 0 && (
             <div className="flex items-center gap-2 bg-green-50 px-2.5 py-1.5 rounded-lg">

@@ -22,6 +22,7 @@ const ManageTasks = () => {
           status: filterStatus === "All" ? "" : filterStatus,
         },
       });
+      // console.log(res);
 
       setAllTasks(res.data?.tasks?.length > 0 ? res.data.tasks : []);
 
@@ -80,7 +81,7 @@ const ManageTasks = () => {
               progress={item.progress}
               createdAt={item.createdAt}
               dueDate={item.dueDate}
-              assignedTo={item.assignedTo?.map((user) => user.profileImageUrl)}
+              assignedTo={item.assignedTo?.map((user) => user.name)}
               attachmentCount={item.attachments?.length || 0}
               completedChecklistCount={item.completedChecklistCount || 0}
               checklist={item.checklist || []}

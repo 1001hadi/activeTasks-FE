@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [pieChartData, setPieChartData] = useState([]);
   const [barChartData, setBarChartData] = useState([]);
-
+  // console.log(user)
   const handleChartData = (data) => {
     const taskPercentage = data?.taskPercentage || null;
     const taskPriorityLevels = data?.taskPriorityLevels || null;

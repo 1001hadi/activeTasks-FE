@@ -9,7 +9,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
   const [allUsers, setAllUsers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tempSelectedUsers, setTempSelectedUsers] = useState([]);
-
+  
   const getAllUsers = async () => {
     try {
       const res = await axiosInstance.get(API_PATHS.USERS.GET_ALL_USERS);
@@ -37,6 +37,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
   const selectedUserAvatars = allUsers
     .filter((user) => selectedUsers.includes(user._id))
     .map((user) => user.profileImageUrl);
+  
 
   useEffect(() => {
     getAllUsers();
@@ -99,10 +100,10 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
 
         <div className="flex justify-end gap-4 pt-4">
           <button className="card-btn" onClick={() => setIsModalOpen(false)}>
-            CANCEL
+            Cancel
           </button>
           <button className="card-btn-fill" onClick={handleAssign}>
-            DONE
+            Done
           </button>
         </div>
       </Modal>
