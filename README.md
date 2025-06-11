@@ -121,3 +121,4 @@
   - edit can be the same as create page
   - task card
     - display task with name, description, due date, status and assigned o(users)
+  - task filter between status or priority
