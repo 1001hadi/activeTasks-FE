@@ -114,6 +114,7 @@
     - handle error
 
 - Create manage task page
+
   - Display all task
   - display each task with Card
   - only admin can see all tasks
@@ -123,3 +124,9 @@
     - display task with name, description, due date, status and assigned o(users)
     - display progress bar depend on status
   - task filter between status or priority
+
+- Create manage users page
+  - display all users
+    - display user on card
+    - display user's name, email, how may task they have.
+  - admin can remove user

@@ -77,7 +77,7 @@ const Dashboard = () => {
               Hello {user?.name}
             </h2>
             <p className="text-xs md:text-[13px] text-gray-600 mt-1.5">
-              {moment().format("dddd Do MMM YYYY")}
+              Today is: {moment().format("ddd MM/DD/YYYY")}
             </p>
           </div>
         </div>
