@@ -40,9 +40,9 @@ const ManageTasks = () => {
     }
   };
 
-  // const handleClick = (taskData) => {
-  //   navigate(`/admin/create-task`, { state: { taskId: taskData._id } });
-  // };
+  const handleClick = (taskData) => {
+    navigate(`/admin/create-task`, { state: { taskId: taskData._id } });
+  };
 
   useEffect(() => {
     getAllTasks(filterStatus);
@@ -56,7 +56,7 @@ const ManageTasks = () => {
           <div className="flex items-center justify-between gap-3">
             <h2 className="text-xl md:text-xl font-medium">My Tasks</h2>
           </div>
-
+          {/* display filter by status */}
           {tabs?.[0]?.count > 0 && (
             <div className="flex items-center gap-3">
               <TaskStatusTab
@@ -66,6 +66,28 @@ const ManageTasks = () => {
               />
             </div>
           )}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+          {allTasks?.map((item, index) => (
+            <TaskCard
+              key={item._id}
+              title={item.title}
+              description={item.description}
+              priority={item.priority}
+              status={item.status}
+              progress={item.progress}
+              createdAt={item.createdAt}
+              dueDate={item.dueDate}
+              assignedTo={item.assignedTo?.map((item) => item.profileImageUrl)}
+              attachmentCount={item.attachments?.length || 0}
+              completedTodoCount={item.completedTodoCount || 0}
+              todoChecklist={item.todoChecklist || []}
+              onClick={() => {
+                handleClick(item);
+              }}
+            />
+          ))}
         </div>
       </div>
     </DashboardLayout>
