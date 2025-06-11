@@ -43,6 +43,9 @@ const TaskCard = ({
     }
   };
 
+  const displayAssignedTo = () =>
+    Array.isArray(assignedTo) ? assignedTo.join(", ") : assignedTo;
+
   return (
     <div
       className="bg-white rounded-xl py-4 shadow-md shadow-gray-100 border border-gray-200/50 cursor-pointer"
@@ -100,7 +103,7 @@ const TaskCard = ({
         <div className="flex items-center justify-between  mt-3">
           <div>
             <label className="text-xs text-gray-500">Assign To:</label>
-            <div className="text-sm">{`${assignedTo}`}</div>
+            <div className="text-sm">{displayAssignedTo()}</div>
           </div>
 
           {attachmentCount > 0 && (
