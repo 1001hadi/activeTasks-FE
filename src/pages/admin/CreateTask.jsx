@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashBoardLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { API_PATHS } from "../../utilities/apiPaths";
@@ -11,6 +11,8 @@ import SelectDropdown from "../../components/inputs/SelectDropdown";
 import SelectUsers from "../../components/inputs/SelectUsers";
 import CheckListInput from "../../components/inputs/CheckListInput";
 import AddAttachmentsInput from "../../components/inputs/AddAttachmentsInput";
+import Modal from "../../components/Modal";
+import RemoveAlert from "../../components/RemoveAlert";
 
 const CreateTask = () => {
   const location = useLocation();
@@ -29,7 +31,7 @@ const CreateTask = () => {
   const [currentTask, setCurrentTask] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [DeleteAlert, setDeleteAlert] = useState(false);
+  const [removeAlert, setRemoveAlert] = useState(false);
 
   const handleValueChange = (key, value) => {
     setTaskData((prevData) => ({ ...prevData, [key]: value }));
@@ -110,14 +112,86 @@ const CreateTask = () => {
     createTask();
   };
 
-  // get task by id of user
-  const getTaskDetailsById = async () => {};
+  // get task by id
+  const getTaskDetailsById = async () => {
+    try {
+      const res = await axiosInstance.get(
+        API_PATHS.TASKS.GET_TASK_BY_ID(taskId)
+      );
 
+      if (res.data) {
+        const taskInfo = res.data;
+        setCurrentTask(taskInfo);
+
+        setTaskData((prevState) => ({
+          title: taskInfo.title,
+          description: taskInfo.description,
+          priority: taskInfo.priority,
+          dueDate: taskInfo.dueDate
+            ? moment(taskInfo.dueDate).format("YYYY-MM-DD")
+            : null,
+          assignedTo: taskInfo?.assignedTo?.map((item) => item?._id) || [],
+          checklist: taskInfo?.checklist?.map((item) => item?.text) || [],
+          attachments: taskInfo?.attachments || [],
+        }));
+      }
+    } catch (err) {
+      console.error("can't fetch", err);
+    }
+  };
+  // console.log(currentTask)
   // update task
-  const handleEditTask = async () => {};
+  const handleEditTask = async () => {
+    setLoading(true);
+
+    try {
+      const checklist = taskData.checklist?.map((item) => {
+        const prevChecklist = currentTask?.checklist || [];
+        const matchedTask = prevChecklist.find((task) => task.text === item);
+
+        return {
+          text: item,
+          complete: matchedTask ? matchedTask.complete : false,
+        };
+      });
+
+      const res = await axiosInstance.put(API_PATHS.TASKS.UPDATE_TASK(taskId), {
+        ...taskData,
+        dueDate: new Date(taskData.dueDate).toISOString(),
+        checklist: checklist,
+      });
+
+      toast.success("Task edited");
+      navigate("/admin/tasks");
+    } catch (err) {
+      console.error("can't edit task!:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // delete task
-  const handleRemoveTask = async () => {};
+  const handleRemoveTask = async () => {
+    try {
+      await axiosInstance.delete(API_PATHS.TASKS.DELETE_TASK(taskId));
+
+      setRemoveAlert(false);
+      toast.success("Task deleted");
+      navigate("/admin/tasks");
+    } catch (err) {
+      console.error(
+        "Error deleting:",
+        err.response?.data?.message || err.message
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (taskId) {
+      getTaskDetailsById(taskId);
+    }
+    return () => {};
+  }, [taskId]);
 
   return (
     <DashboardLayout activeMenu="Create Task">
@@ -131,10 +205,10 @@ const CreateTask = () => {
 
               {taskId && (
                 <button
-                  className="flex items-center gap-1.5 text-[13px] font-medium text-rose-500 bg-rose-50 rounded px-2 py-1 border border-rose-100 hover:border-rose-300 cursor-pointer"
-                  onClick={() => setDeleteAlert(true)}
+                  className="flex items-center gap-1.5 text-[13px] font-medium text-white bg-red-600 rounded px-2 py-1 border border-rose-100 hover:border-rose-300 cursor-pointer"
+                  onClick={() => setRemoveAlert(true)}
                 >
-                  <LuTrash2 className="text-base" /> Delete
+                  Remove Task
                 </button>
               )}
             </div>
@@ -245,6 +319,16 @@ const CreateTask = () => {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={removeAlert}
+        onClose={() => setRemoveAlert(false)}
+        title="Remove Task"
+      >
+        <RemoveAlert
+          content="Do you want remove this task?"
+          onRemove={() => handleRemoveTask()}
+        />
+      </Modal>
     </DashboardLayout>
   );
 };
