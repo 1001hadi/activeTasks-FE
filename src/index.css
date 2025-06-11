@@ -45,3 +45,7 @@
 .add-btn {
   @apply w-full flex items-center justify-center gap-1.5  md:text-sm font-medium text-white whitespace-nowrap bg-green-700 hover:bg-green-800 hover:text-white border border-green-800 rounded-lg px-4 py-2 cursor-pointer;
 }
+
+.user-card {
+  @apply bg-white p-4 rounded-xl shadow-sm shadow-green-800 border border-gray-200/50;
+}

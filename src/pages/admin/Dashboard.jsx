@@ -73,7 +73,7 @@ const Dashboard = () => {
       <div className="card my-5">
         <div>
           <div className="col-span-3">
-            <h2 className="text-xl font-small md:text-2xl">
+            <h2 className="text-xl font-medium md:text-2xl text-green-800">
               Hello {user?.name}
             </h2>
             <p className="text-xs md:text-[13px] text-gray-600 mt-1.5">

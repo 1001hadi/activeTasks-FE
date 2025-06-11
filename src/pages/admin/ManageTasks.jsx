@@ -3,7 +3,6 @@ import DashboardLayout from "../../components/layouts/DashBoardLayout";
 import axiosInstance from "../../utilities/axiosInstance";
 import { API_PATHS } from "../../utilities/apiPaths";
 import { useNavigate } from "react-router-dom";
-import { LuFileSpreadsheet } from "react-icons/lu";
 import TaskStatusTab from "../../components/TaskStatusTab";
 import TaskCard from "../../components/cards/TaskCard";
 
@@ -22,11 +21,10 @@ const ManageTasks = () => {
           status: filterStatus === "All" ? "" : filterStatus,
         },
       });
-      // console.log(res);
 
       setAllTasks(res.data?.tasks?.length > 0 ? res.data.tasks : []);
 
-      // Map statusSummary data with fixed labels and order
+      // Map statusSummary data with fixed labels
       const statusSummary = res.data?.statusSummary || {};
 
       const statusArray = [
@@ -56,7 +54,9 @@ const ManageTasks = () => {
       <div className="my-5">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="text-xl md:text-xl font-medium">My Tasks</h2>
+            <h2 className="text-xl md:text-xl font-medium text-green-800">
+              Manage Tasks
+            </h2>
           </div>
           {/* display filter by status */}
           {tabs?.[0]?.count > 0 && (

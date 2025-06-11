@@ -11,6 +11,7 @@ const ManageUsers = () => {
     try {
       const res = await axiosInstance.get(API_PATHS.USERS.GET_ALL_USERS);
       if (res.data?.length > 0) {
+        console.log(res.data);
         setAllUsers(res.data);
       }
     } catch (err) {
@@ -28,7 +29,9 @@ const ManageUsers = () => {
     <DashboardLayout activeMenu="Manage Users">
       <div className="mt-5 mb-10">
         <div className="flex md:flex-row md:items-center justify-between">
-          <h2 className="text-xl md:text-xl text-green-800 font-medium">Active Users</h2>
+          <h2 className="text-xl md:text-xl text-green-800 font-medium">
+            Active Users
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
