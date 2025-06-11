@@ -3,10 +3,10 @@ import React from "react";
 const UserStatusInfoCard = ({ label, count, status }) => {
   const handleStatusColor = () => {
     switch (status) {
-      case "In Progress":
+      case "Progress":
         return "text-yellow-500 bg-gray-50";
 
-      case "Completed":
+      case "Complete":
         return "text-green-700 bg-gray-50";
 
       default:

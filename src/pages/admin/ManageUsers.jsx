@@ -11,7 +11,7 @@ const ManageUsers = () => {
     try {
       const res = await axiosInstance.get(API_PATHS.USERS.GET_ALL_USERS);
       if (res.data?.length > 0) {
-        console.log(res.data);
+        // console.log(res.data);
         setAllUsers(res.data);
       }
     } catch (err) {

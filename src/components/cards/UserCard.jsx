@@ -21,17 +21,17 @@ const UserCard = ({ userInfo }) => {
       <div className="flex items-end gap-3 mt-5">
         <UserStatusInfoCard
           label="Pending"
-          count={userInfo?.pendingTasks || 0}
+          count={userInfo?.pendingTask || 0}
           status="Pending"
         />
         <UserStatusInfoCard
           label="Progress"
-          count={userInfo?.progressTasks || 0}
+          count={userInfo?.progressTask || 0}
           status="Progress"
         />
         <UserStatusInfoCard
           label="Complete"
-          count={userInfo?.completedTasks || 0}
+          count={userInfo?.completeTask || 0}
           status="Complete"
         />
       </div>
