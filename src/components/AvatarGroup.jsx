@@ -1,4 +1,4 @@
-const AvatarGroup = ({ avatars, maxVisible = 3 }) => {
+const AvatarGroup = ({ avatars, maxVisible = 2 }) => {
   return (
     <div className="flex items-center">
       {avatars.slice(0, maxVisible).map((avatar, index) => (

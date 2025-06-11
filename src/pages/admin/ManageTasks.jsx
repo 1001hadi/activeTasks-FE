@@ -5,6 +5,7 @@ import { API_PATHS } from "../../utilities/apiPaths";
 import { useNavigate } from "react-router-dom";
 import { LuFileSpreadsheet } from "react-icons/lu";
 import TaskStatusTab from "../../components/TaskStatusTab";
+import TaskCard from "../../components/cards/TaskCard";
 
 const ManageTasks = () => {
   const [allTasks, setAllTasks] = useState([]);
@@ -67,9 +68,9 @@ const ManageTasks = () => {
             </div>
           )}
         </div>
-
+        {/* {console.log(allTasks)} */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-          {allTasks?.map((item, index) => (
+          {allTasks?.map((item) => (
             <TaskCard
               key={item._id}
               title={item.title}
@@ -79,10 +80,10 @@ const ManageTasks = () => {
               progress={item.progress}
               createdAt={item.createdAt}
               dueDate={item.dueDate}
-              assignedTo={item.assignedTo?.map((item) => item.profileImageUrl)}
+              assignedTo={item.assignedTo?.map((user) => user.profileImageUrl)}
               attachmentCount={item.attachments?.length || 0}
-              completedTodoCount={item.completedTodoCount || 0}
-              todoChecklist={item.todoChecklist || []}
+              completedChecklistCount={item.completedChecklistCount || 0}
+              checklist={item.checklist || []}
               onClick={() => {
                 handleClick(item);
               }}

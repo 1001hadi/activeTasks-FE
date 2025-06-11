@@ -15,7 +15,7 @@
 }
 
 .text-primary {
-  @apply text-green-700;
+  @apply text-green-800;
 }
 
 .btn-primary {
