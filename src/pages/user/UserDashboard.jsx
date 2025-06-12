@@ -5,7 +5,7 @@ import { userContext } from "../../context/userContext";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utilities/axiosInstance";
-import { API_PATHS } from "../../utilities/apiPaths"; 
+import { API_PATHS } from "../../utilities/apiPaths";
 import moment from "moment";
 import { addSeparator } from "../../utilities/helper";
 import InfoCard from "../../components/Cards/InfoCard";
@@ -14,36 +14,34 @@ import TasksTable from "../../components/TasksTable";
 import CustomPieChart from "../../components/Charts/CustomPieChart";
 import CustomBarChart from "../../components/Charts/CustomBarChart";
 
-const COLORS = ["#8D51FF", "#00B8DB", "#7BCE00"];
+const COLORS = ["#ec8507", "#f1cb31", "#0b590b"];
 
 const UserDashboard = () => {
   useUserAuth();
 
   const { user } = useContext(userContext);
-
   const navigate = useNavigate();
-
   const [dashboardData, setDashboardData] = useState(null);
   const [pieChartData, setPieChartData] = useState([]);
   const [barChartData, setBarChartData] = useState([]);
 
   // Prepare Chart Data
   const prepareChartData = (data) => {
-    const taskDistribution = data?.taskDistribution || null;
-    const taskPriorityLevels = data?.taskPriorityLevels || null;
+    const userTaskPercentage = data?.userTaskPercentage || null;
+    const userTaskPriorityLevels = data?.userTaskPriorityLevels || {};
 
-    const taskDistributionData = [
-      { status: "Pending", count: taskDistribution?.Pending || 0 },
-      { status: "In Progress", count: taskDistribution?.InProgress || 0 },
-      { status: "Completed", count: taskDistribution?.Completed || 0 },
+    const taskPercentageData = [
+      { status: "Pending", count: userTaskPercentage?.Pending || 0 },
+      { status: "Progress", count: userTaskPercentage?.Progress || 0 },
+      { status: "Complete", count: userTaskPercentage?.Complete || 0 },
     ];
 
-    setPieChartData(taskDistributionData);
+    setPieChartData(taskPercentageData);
 
     const PriorityLevelData = [
-      { priority: "Low", count: taskPriorityLevels?.Low || 0 },
-      { priority: "Medium", count: taskPriorityLevels?.Medium || 0 },
-      { priority: "High", count: taskPriorityLevels?.High || 0 },
+      { priority: "Low", count: userTaskPriorityLevels?.Low || 0 },
+      { priority: "Medium", count: userTaskPriorityLevels?.Medium || 0 },
+      { priority: "High", count: userTaskPriorityLevels?.High || 0 },
     ];
 
     setBarChartData(PriorityLevelData);
@@ -51,12 +49,12 @@ const UserDashboard = () => {
 
   const getDashboardData = async () => {
     try {
-      const response = await axiosInstance.get(
+      const res = await axiosInstance.get(
         API_PATHS.TASKS.GET_USER_DASHBOARD_DATA
       );
-      if (response.data) {
-        setDashboardData(response.data);
-        prepareChartData(response.data?.charts || null);
+      if (res.data) {
+        setDashboardData(res.data);
+        prepareChartData(res.data?.charts || null);
       }
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -64,7 +62,7 @@ const UserDashboard = () => {
   };
 
   const onSeeMore = () => {
-    navigate("/admin/tasks");
+    navigate("/user/tasks");
   };
 
   useEffect(() => {
@@ -78,9 +76,9 @@ const UserDashboard = () => {
       <div className="card my-5">
         <div>
           <div className="col-span-3">
-            <h2 className="text-xl md:text-2xl">Good Morning! {user?.name}</h2>
+            <h2 className="text-xl md:text-2xl">Hello! {user?.name}</h2>
             <p className="text-xs md:text-[13px] text-gray-400 mt-1.5">
-              {moment().format("dddd Do MMM YYYY")}
+              Today is: {moment().format("ddd MM/DD/YYYY")}
             </p>
           </div>
         </div>
@@ -89,33 +87,33 @@ const UserDashboard = () => {
           <InfoCard
             label="Total Tasks"
             value={addSeparator(
-              dashboardData?.charts?.taskDistribution?.All || 0
+              dashboardData?.charts?.userTaskPercentage?.All || 0
             )}
-            color="bg-primary"
+            color="bg-green-800"
           />
 
           <InfoCard
             label="Pending Tasks"
             value={addSeparator(
-              dashboardData?.charts?.taskDistribution?.Pending || 0
+              dashboardData?.charts?.userTaskPercentage?.Pending || 0
             )}
-            color="bg-violet-500"
+            color="bg-orange-500"
           />
 
           <InfoCard
             label="In Progress Tasks"
             value={addSeparator(
-              dashboardData?.charts?.taskDistribution?.InProgress || 0
+              dashboardData?.charts?.userTaskPercentage?.Progress || 0
             )}
-            color="bg-cyan-500"
+            color="bg-yellow-500"
           />
 
           <InfoCard
             label="Completed Tasks"
             value={addSeparator(
-              dashboardData?.charts?.taskDistribution?.Completed || 0
+              dashboardData?.charts?.userTaskPercentage?.Complete || 0
             )}
-            color="bg-lime-500"
+            color="bg-lime-600"
           />
         </div>
       </div>
@@ -124,7 +122,7 @@ const UserDashboard = () => {
         <div>
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="font-medium">Task Distribution</h5>
+              <h5 className="font-medium">Tasks Percentages</h5>
             </div>
 
             <CustomPieChart data={pieChartData} colors={COLORS} />
@@ -134,7 +132,7 @@ const UserDashboard = () => {
         <div>
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="font-medium">Task Priority Levels</h5>
+              <h5 className="font-medium">Priority Levels</h5>
             </div>
 
             <CustomBarChart data={barChartData} />
@@ -147,11 +145,11 @@ const UserDashboard = () => {
               <h5 className="text-lg">Recent Tasks</h5>
 
               <button className="card-btn" onClick={onSeeMore}>
-                See All <LuArrowRight className="text-base" />
+                See All
               </button>
             </div>
 
-            <TasksTable tableData={dashboardData?.recentTasks || []} />
+            <TasksTable tableData={dashboardData?.userRecentTasks || []} />
           </div>
         </div>
       </div>

@@ -37,8 +37,6 @@ const Login = () => {
         password,
       });
 
-      console.log("Login API Response:", res.data); // Log response data
-
       const { token, role } = res.data;
 
       if (token) {

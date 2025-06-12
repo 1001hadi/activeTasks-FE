@@ -130,7 +130,7 @@ const Dashboard = () => {
         <div>
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="font-medium">Tasks Priority Levels</h5>
+              <h5 className="font-medium">Priority Levels</h5>
             </div>
 
             <CustomBarChart data={barChartData} />
