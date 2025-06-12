@@ -122,7 +122,7 @@ const UserDashboard = () => {
         <div>
           <div className="card">
             <div className="flex items-center justify-between">
-              <h5 className="font-medium">Tasks Percentages</h5>
+              <h5 className="font-medium">Tasks Progress Percentages</h5>
             </div>
 
             <CustomPieChart data={pieChartData} colors={COLORS} />
