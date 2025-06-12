@@ -61,7 +61,7 @@ const UserDashboard = () => {
     }
   };
 
-  const onSeeMore = () => {
+  const handleSeeMore = () => {
     navigate("/user/tasks");
   };
 
@@ -144,8 +144,8 @@ const UserDashboard = () => {
             <div className="flex items-center justify-between ">
               <h5 className="text-lg">Recent Tasks</h5>
 
-              <button className="card-btn" onClick={onSeeMore}>
-                See All
+              <button className="card-btn" onClick={handleSeeMore}>
+                See All <LuArrowRight className="text-base" />
               </button>
             </div>
 

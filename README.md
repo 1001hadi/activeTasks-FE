@@ -130,3 +130,19 @@
     - display user on card
     - display user's name, email, how may task they have.
   - admin can remove user
+
+- building user UI
+
+- Create user Dashboard with reusable components
+  - display user specific task
+  - use all chart and menu components from admin
+  - display Progress percentage and priority level
+  - display recent task(5)
+
+- create user task page 
+  - display user specific task 
+  - use same component from admin management page,
+  - add admin filter for task progress
+  
+- create user detail page 
+  - user can update the checklists to start task progress.
