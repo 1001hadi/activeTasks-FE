@@ -16,7 +16,7 @@ const TaskCard = ({
   checklist,
   onClick,
 }) => {
-  // console.log(assignedTo)
+  // console.log(progress);
   const getStatusTagColor = () => {
     switch (status) {
       case "Progress":

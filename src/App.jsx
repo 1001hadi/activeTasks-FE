@@ -29,7 +29,7 @@ function App() {
             <Route path="/admin/users" element={<ManageUsers />} />
           </Route>
           {/* user routes */}
-          <Route element={<PrivateRoute allowedRoles={["admin"]} />}>
+          <Route element={<PrivateRoute allowedRoles={["user", "admin"]} />}>
             <Route path="/user/dashboard" element={<UserDashboard />} />
             <Route path="/user/tasks" element={<UserTasks />} />
             <Route

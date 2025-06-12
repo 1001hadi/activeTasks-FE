@@ -37,6 +37,8 @@ const Login = () => {
         password,
       });
 
+      console.log("Login API Response:", res.data); // Log response data
+
       const { token, role } = res.data;
 
       if (token) {
@@ -46,7 +48,7 @@ const Login = () => {
         // redirect depend on role
         role === "admin"
           ? navigate("/admin/dashboard")
-          : navigate("user/dashboard");
+          : navigate("/user/dashboard");
       }
     } catch (error) {
       if (error.res && error.res.data.message) {
