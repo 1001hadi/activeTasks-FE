@@ -21,7 +21,7 @@ const UserTasks = () => {
           status: filterStatus === "All" ? "" : filterStatus,
         },
       });
-      console.log(res.data);
+      // console.log(res.data);
       setAllTasks(res.data?.tasks?.length > 0 ? res.data.tasks : []);
 
       // Map statusSummary data with fixed labels and order

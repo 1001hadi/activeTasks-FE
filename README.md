@@ -145,4 +145,7 @@
   - add admin filter for task progress
   
 - create user detail page 
+  - display task detail for user
   - user can update the checklists to start task progress.
+  - if task has attached link handle it with https or http
+  - task progress will updated if checkbox marked as checked.
