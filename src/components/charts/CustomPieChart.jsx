@@ -1,4 +1,3 @@
-import React from "react";
 import {
   PieChart,
   Pie,
@@ -20,9 +19,9 @@ const CustomPieChart = ({ data, colors }) => {
           nameKey="status"
           cx="50%"
           cy="50%"
-          outerRadius={130}
-          innerRadius={100}
           labelLine={false}
+          outerRadius={120}
+          fill="#8884d8"
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />

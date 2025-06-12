@@ -20,7 +20,7 @@ const Dashboard = () => {
   useUserAuth();
 
   const { user } = useContext(userContext);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [dashboardData, setDashboardData] = useState(null);
   const [pieChartData, setPieChartData] = useState([]);
   const [barChartData, setBarChartData] = useState([]);

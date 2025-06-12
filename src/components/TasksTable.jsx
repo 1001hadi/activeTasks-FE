@@ -34,7 +34,7 @@ const TasksTable = ({ tableData }) => {
         <thead>
           <tr className="text-left">
             <th className="py-3 px-4 text-gray-800 font-medium text-[13px]">
-              Name
+              Title
             </th>
             <th className="py-3 px-4 text-gray-800 font-medium text-[13px]">
               Status
