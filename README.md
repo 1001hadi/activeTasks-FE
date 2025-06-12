@@ -126,6 +126,7 @@
   - task filter between status or priority
 
 - Create manage users page
+
   - display all users
     - display user on card
     - display user's name, email, how may task they have.
@@ -134,18 +135,24 @@
 - building user UI
 
 - Create user Dashboard with reusable components
+
   - display user specific task
   - use all chart and menu components from admin
   - display Progress percentage and priority level
   - display recent task(5)
 
-- create user task page 
-  - display user specific task 
+- create user task page
+  - display user specific task
   - use same component from admin management page,
   - add admin filter for task progress
-  
-- create user detail page 
+- create user detail page
   - display task detail for user
   - user can update the checklists to start task progress.
   - if task has attached link handle it with https or http
   - task progress will updated if checkbox marked as checked.
+
+# Deployment
+
+- deploy backend and whitelist the DB
+- chang the BASE_URL to backed address.
+- deploy the frontEnd
