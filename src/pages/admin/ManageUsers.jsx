@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import DashboardLayout from "@/components/layouts/DashBoardLayout";
 import axiosInstance from "@/utilities/axiosInstance";
 import { API_PATHS } from "@/utilities/apiPaths";
+import DashboardLayout from "@/components/layouts/DashBoardLayout";
 import UserCard from "@/components/cards/UserCard";
 
 const ManageUsers = () => {
