@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import DashboardLayout from "../../components/layouts/DashBoardLayout";
-import { data, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+// import DashboardLayout from "../../components/layouts/DashBoardLayout";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utilities/axiosInstance";
 import { API_PATHS } from "../../utilities/apiPaths";
 import TaskStatusTab from "../../components/TaskStatusTab";
