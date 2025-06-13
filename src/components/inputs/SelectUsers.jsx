@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { API_PATHS } from "../../utilities/apiPaths";
-import axiosInstance from "../../utilities/axiosInstance";
+import { API_PATHS } from "@/utilities/apiPaths";
+import axiosInstance from "@/utilities/axiosInstance";
 import Modal from "../Modal";
 import AvatarGroup from "../AvatarGroup";
 import { FaUsers } from "react-icons/fa";
@@ -9,7 +9,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
   const [allUsers, setAllUsers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tempSelectedUsers, setTempSelectedUsers] = useState([]);
-  
+
   const getAllUsers = async () => {
     try {
       const res = await axiosInstance.get(API_PATHS.USERS.GET_ALL_USERS);
@@ -37,7 +37,6 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
   const selectedUserAvatars = allUsers
     .filter((user) => selectedUsers.includes(user._id))
     .map((user) => user.profileImageUrl);
-  
 
   useEffect(() => {
     getAllUsers();

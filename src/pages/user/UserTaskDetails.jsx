@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import DashboardLayout from "../../components/layouts/DashboardLayout";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { useParams } from "react-router-dom";
-import axiosInstance from "../../utilities/axiosInstance";
-import { API_PATHS } from "../../utilities/apiPaths";
+import axiosInstance from "@/utilities/axiosInstance";
+import { API_PATHS } from "@/utilities/apiPaths";
 import moment from "moment";
 
-import InfoBox from "../../components/InfoBox";
-import Checklist from "../../components/Checklist";
-import Attachment from "../../components/Attachment";
+import InfoBox from "@/components/InfoBox";
+import Checklist from "@/components/Checklist";
+import Attachment from "@/components/Attachment";
 
 const UserTaskDetails = () => {
   const { id } = useParams();
