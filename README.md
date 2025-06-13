@@ -1,5 +1,7 @@
 # Active Tasks
 
+# This application build on MERN stack for 16 week Activate Work Software Engineering boot camp Capstone Project.
+
 [Project backEnd Repo:](https://github.com/1001hadi/activeTasks-BE)
 
 #
@@ -7,6 +9,37 @@
 # About:
 
 ### Active tasks is Task management app let you create and manage your work / life related task and assign it to your employee / family member and monitor their task progress on admin dashboard. In register form admin/ user can upload their profile image. after Create account and sign in Admin can assign task to specific user with priority level, due date, checklist to accomplish and attachment link to resources. Admin can monitor and edit task and reassign to other user if needed. after register and sign in User has his own dashboard and can see the task activity chart and update the task progress only. After user update task checklist checkboxes the progress will be automatically update on admin dashboard and all users if that task assign to them as well.
+
+# Tolls in use =>
+
+- stack:
+
+  - MongoDB
+  - Express.js
+  - React.js
+  - Node.js
+  -
+
+- Libraries:
+- frontEnd:
+  - react-router-dom
+  - axios
+  - react-icons
+  - recharts
+  - react-hot-toast
+  - moment
+  - tailwindcss
+- backEnd:
+
+  - express
+  - mongoose
+  - cors
+  - bcryptjs
+  - jsonwebtoken
+  - dotenv
+  - multer
+
+  #
 
 ## Build Process =>
 
@@ -175,6 +208,7 @@
 - Authentication and admin only routes
 - Upload profile picture for user/admin
 - Create task route controller with needed functionality
+- State management
 - Display percentage of task progress and priority dynamically
 - Misspelling and self made bugs
 - Working with Promises and update users tasks and show their progress
