@@ -4,6 +4,10 @@
 
 #
 
+# About:
+
+### Active tasks is Task management app let you create and manage your work / life related task and assign it to your employee / family member and monitor their task progress on admin dashboard. In register form admin/ user can upload their profile image. after Create account and sign in Admin can assign task to specific user with priority level, due date, checklist to accomplish and attachment link to resources. Admin can monitor and edit task and reassign to other user if needed. after register and sign in User has his own dashboard and can see the task activity chart and update the task progress only. After user update task checklist checkboxes the progress will be automatically update on admin dashboard and all users if that task assign to them as well.
+
 ## Build Process =>
 
 1 - Start project and install the necessary packages
@@ -156,3 +160,36 @@
 - deploy backend and whitelist the DB
 - chang the BASE_URL to backed address.
 - deploy the frontEnd
+
+#
+
+# Challenges:
+
+- Planing and what i want to put in my App to be done in capstone time window
+- Finding Good and functional libraries
+- Manage my folder structure to be easy access and clean
+- good name for variables, functions, components
+- Keep my self focus on building the project.
+- Style and choice good colors
+- Building Create task route
+- Authentication and admin only routes
+- Upload profile picture for user/admin
+- Create task route controller with needed functionality
+- Display percentage of task progress and priority dynamically
+- Misspelling and self made bugs
+- Working with Promises and update users tasks and show their progress
+- Make my components Reusable for both admin and user
+- Make attached link navigating to their website
+- Clean code and functionality at the same time
+- FrontEnd deployment on render => still working on it.
+
+#
+
+# What i will add if have time:
+
+- Add exact percentage % number on progress and priority
+- Add user Edit to admin
+- Add 3rd party API to display weather
+- Add Download functionality for all tasks report as google sheet
+- Work more on UI and CSS
+-
