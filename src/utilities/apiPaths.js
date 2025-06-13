@@ -1,4 +1,4 @@
-export const BASE_URL = "https://activetasks-be.onrender.com";
+export const BASE_URL = "http://localhost:3000";
 
 // utils/apiPaths.js
 export const API_PATHS = {
