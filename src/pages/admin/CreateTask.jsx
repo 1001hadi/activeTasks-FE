@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DashboardLayout from "@/components/layouts/DashBoardLayout";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { API_PATHS } from "@/utilities/apiPaths";
 import { PRIORITY_DATA } from "@/utilities/data";
