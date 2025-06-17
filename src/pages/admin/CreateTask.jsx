@@ -6,7 +6,6 @@ import { PRIORITY_DATA } from "@/utilities/data";
 import axiosInstance from "@/utilities/axiosInstance";
 import toast from "react-hot-toast";
 import moment from "moment";
-import { LuTrash2 } from "react-icons/lu";
 import SelectDropdown from "@/components/inputs/SelectDropdown";
 import SelectUsers from "@/components/inputs/SelectUsers";
 import CheckListInput from "@/components/inputs/CheckListInput";
