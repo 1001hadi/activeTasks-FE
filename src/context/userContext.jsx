@@ -4,7 +4,7 @@ import { API_PATHS } from "../utilities/apiPaths";
 
 export const userContext = createContext();
 
-const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   // state to track loading
   const [loading, setLoading] = useState(true);
@@ -52,4 +52,4 @@ const UserProvider = ({ children }) => {
   );
 };
 
-export default UserProvider;
+// export default UserProvider;
