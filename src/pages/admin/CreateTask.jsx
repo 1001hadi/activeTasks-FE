@@ -6,10 +6,10 @@ import { PRIORITY_DATA } from "@/utilities/data";
 import axiosInstance from "@/utilities/axiosInstance";
 import toast from "react-hot-toast";
 import moment from "moment";
-import SelectDropdown from "@/components/inputs/SelectDropdown";
-import SelectUsers from "@/components/inputs/SelectUsers";
-import CheckListInput from "@/components/inputs/CheckListInput";
-import AddAttachmentsInput from "@/components/inputs/AddAttachmentsInput";
+import SelectDropdown from "@/components/Inputs/SelectDropdown";
+import SelectUsers from "@/components/Inputs/SelectUsers";
+import CheckListInput from "@/components/Inputs/CheckListInput";
+import AddAttachmentsInput from "@/components/Inputs/AddAttachmentsInput";
 import Modal from "@/components/Modal";
 import RemoveAlert from "@/components/RemoveAlert";
 

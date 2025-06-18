@@ -12,7 +12,7 @@ import InfoCard from "@/components/Cards/InfoCard";
 import { LuArrowRight } from "react-icons/lu";
 import TasksTable from "@/components/TasksTable";
 import CustomPieChart from "@/components/Charts/CustomPieChart";
-import CustomBarChart from "@/components/charts/CustomBarChart";
+import CustomBarChart from "@/components/Charts/CustomBarChart";
 
 const COLORS = ["#ec8507", "#f1cb31", "#0b590b"];
 

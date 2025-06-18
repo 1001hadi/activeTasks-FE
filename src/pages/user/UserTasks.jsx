@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "@/utilities/axiosInstance";
 import { API_PATHS } from "@/utilities/apiPaths";
 import TaskStatusTab from "@/components/TaskStatusTab";
-import TaskCard from "@/components/cards/TaskCard";
+import TaskCard from "@/components/Cards/TaskCard";
 
 const UserTasks = () => {
   const [allTasks, setAllTasks] = useState([]);

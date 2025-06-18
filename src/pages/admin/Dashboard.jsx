@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "@/utilities/axiosInstance";
 import { API_PATHS } from "@/utilities/apiPaths";
 import moment from "moment";
-import DisplayInfoCard from "@/components/cards/DisplayInfoCard";
+import DisplayInfoCard from "@/components/Cards/DisplayInfoCard";
 import { IoMdCard } from "react-icons/io";
 import { addSeparator } from "@/utilities/helper";
 import { LuArrowRight } from "react-icons/lu";
 import TasksTable from "@/components/TasksTable";
-import CustomPieChart from "@/components/charts/CustomPieChart";
-import CustomBarChart from "@/components/charts/CustomBarChart";
+import CustomPieChart from "@/components/Charts/CustomPieChart";
+import CustomBarChart from "@/components/Charts/CustomBarChart";
 
 const COLORS = ["#ec8507", "#f1cb31", "#0b590b"];
 
