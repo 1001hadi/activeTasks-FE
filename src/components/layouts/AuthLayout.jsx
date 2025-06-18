@@ -1,5 +1,5 @@
 import React from "react";
-import Login_IMG from "@/assets/images/login0.png";
+import loginImg from "@/assets/images/login0.png";
 
 const AuthLayout = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const AuthLayout = ({ children }) => {
         {children}
       </div>
       <div className="hidden md:flex w-[80vw] h-screen item-center justify-center overflow-hidden">
-        <img src={Login_IMG} alt="task-image" className="lg:w-[100%]" />
+        <img src={loginImg} alt="task-image" className="lg:w-[100%]" />
       </div>
     </div>
   );
