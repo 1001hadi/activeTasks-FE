@@ -1,4 +1,4 @@
-# Active Tasks
+# Active Tasks: Your Ultimate Work & Life Management Companion
 
 # This application build on MERN stack for 16 week Activate Work Software Engineering boot camp Capstone Project.
 
@@ -6,9 +6,11 @@
 
 #
 
-# About:
+## Active Tasks is an intuitive task management application designed to streamline how you create, assign, and monitor tasks for both your professional and personal life.
 
-### Active tasks is Task management app let you create and manage your work / life related task and assign it to your employee / family member and monitor their task progress on admin dashboard. In register form admin/ user can upload their profile image. after Create account and sign in Admin can assign task to specific user with priority level, due date, checklist to accomplish and attachment link to resources. Admin can monitor and edit task and reassign to other user if needed. after register and sign in User has his own dashboard and can see the task activity chart and update the task progress only. After user update task checklist checkboxes the progress will be automatically update on admin dashboard and all users if that task assign to them as well.
+### As an admin, you'll have complete control. Easily onboard team members or family by inviting them to create accounts and upload their profile images. Once signed in, you can effortlessly assign tasks with specific priority levels, due dates, and essential checklists for completion. Attach relevant resources via links to ensure your team has everything they need. The comprehensive admin dashboard provides a real-time overview, allowing you to monitor task progress, make necessary edits, and even reassign tasks to other users as needed.
+
+### For users, Active Tasks provides a personalized and focused experience. Each user gets a dedicated dashboard to view their assigned tasks and track their individual activity. Updating task progress is simple: just check off items on the task's checklist. This progress automatically syncs, providing instant updates on the admin dashboard and for any other users involved in that particular task.
 
 # Tolls in use =>
 
