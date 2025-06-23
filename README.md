@@ -1,5 +1,7 @@
 # Active Tasks: Your Ultimate Work & Life Management Companion
 
+[Live Preview:](https://1001hadi.github.io/activeTasks-FE)
+
 # This application build on MERN stack for 16 week Activate Work Software Engineering boot camp Capstone Project.
 
 [Project backEnd Repo:](https://github.com/1001hadi/activeTasks-BE)
